@@ -1,10 +1,6 @@
-
-# object files (hasil compile)
 *.o
 
-# executable
 unitconverter
 
-# vscode setting
 .vscode/
 

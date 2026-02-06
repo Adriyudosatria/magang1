@@ -11,6 +11,7 @@ add_executable(magang1
     src/Length.cpp
     src/Temperature.cpp
     src/Time.cpp
+    src/Json.Handler.cpp
 )
 
 target_include_directories(magang1 PRIVATE include)

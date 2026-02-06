@@ -17,19 +17,19 @@ Temperature::Temperature() {
 }
 
 double Temperature::toBase(double value, std::string unit) {
-    if (!multiplier.count(unit)) {
-        std::cerr << "Error: Unit not found\n";
-        return 0.0;
+    if (multiplier.count(unit)) {
+        return (value + offset[unit]) * multiplier[unit];
     }
+    std::cerr << "Error: Unit not found\n";
+    return 0.0;
 
-    return (value + offset[unit]) * multiplier[unit];
 }
 
 double Temperature::fromBase(double baseValue, std::string targetUnit) {
-    if (!multiplier.count(targetUnit)) {
-        std::cerr << "Error: Unit not found\n";
+    if (multiplier.count(targetUnit)) {
+        return (baseValue / multiplier[targetUnit]) - offset[targetUnit];
+    }
+    std::cerr << "Error: Unit not found\n";
         return 0.0;
     }
 
-    return (baseValue / multiplier[targetUnit]) - offset[targetUnit];
-}
